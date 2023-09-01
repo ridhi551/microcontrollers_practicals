@@ -1,0 +1,13 @@
+CLR P1.0;
+MOV TMOD,#01H;
+again:
+MOV TL0,#0CH;
+MOV TH0,#0FFH;
+CPL P1.0;
+SETB TR0;
+wait:
+JNB TF0,wait;
+CLR TR0;
+CLR TF0;
+SJMP again;
+END
